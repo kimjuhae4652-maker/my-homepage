@@ -1,7 +1,7 @@
 window.APP_CONFIG = {
   projectName: {
-    ko: "매니페스토 아카이브",
-    en: "Manifesto Archive",
+    ko: "GATE",
+    en: "GATE",
   },
   supabase: {
     url: "https://YOUR_PROJECT.supabase.co",
@@ -53,8 +53,8 @@ window.APP_CONFIG = {
   ],
   translations: {
     ko: {
-      pageTitle: "매니페스토 아카이브",
-      brandName: "Manifesto Archive",
+      pageTitle: "GATE",
+      brandName: "GATE",
       navAbout: "소개",
       navArchive: "아카이브",
       navSubmit: "참여",
@@ -89,6 +89,13 @@ window.APP_CONFIG = {
       archiveBody:
         "언어, 태그, 키워드로 아카이브를 탐색하세요. 모든 카드는 최신순으로 정렬됩니다.",
       archiveHint: "검색 대상은 본문과 작성자 이름입니다.",
+      archivePageLink: "전체 선언문 한 번에 보기",
+      archivePageTitle: "모든 선언문",
+      archivePageLead:
+        "지금까지 등록된 선언문을 최신순으로 한 번에 읽을 수 있는 페이지입니다.",
+      archivePageBack: "메인으로 돌아가기",
+      archivePageCount: "총 {count}개의 선언문",
+      archivePageEmpty: "아직 공개된 선언문이 없습니다.",
       filterLocaleLabel: "언어 필터",
       filterTagLabel: "태그 필터",
       filterSearchLabel: "키워드 검색",
@@ -135,8 +142,8 @@ window.APP_CONFIG = {
         "GitHub Pages와 Supabase로 운영되는 참여형 아카이브. 필요한 문구와 태그는 <code>config.js</code>에서 바로 바꿀 수 있습니다.",
     },
     en: {
-      pageTitle: "Manifesto Archive",
-      brandName: "Manifesto Archive",
+      pageTitle: "GATE",
+      brandName: "GATE",
       navAbout: "About",
       navArchive: "Archive",
       navSubmit: "Submit",
@@ -171,6 +178,13 @@ window.APP_CONFIG = {
       archiveBody:
         "Browse the archive by language, tag, or keyword. Every card is sorted from newest to oldest.",
       archiveHint: "Search looks through statement text and author name.",
+      archivePageLink: "View all statements at once",
+      archivePageTitle: "All Statements",
+      archivePageLead:
+        "A dedicated page where every published statement appears in one continuous list.",
+      archivePageBack: "Back to main page",
+      archivePageCount: "{count} statements total",
+      archivePageEmpty: "There are no public statements yet.",
       filterLocaleLabel: "Language",
       filterTagLabel: "Tag",
       filterSearchLabel: "Keyword search",

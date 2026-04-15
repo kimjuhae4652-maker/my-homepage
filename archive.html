@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GATE</title>
+    <meta
+      name="description"
+      content="All published statements from the GATE manifesto archive in one page."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./config.js" defer></script>
+    <script src="./archive-page.js" defer></script>
+  </head>
+  <body>
+    <main class="archive-page">
+      <header class="archive-page__header">
+        <div class="archive-page__top">
+          <a class="archive-page__back" href="./index.html" data-copy="archivePageBack"></a>
+
+          <div class="language-toggle" role="group" aria-label="Language switcher">
+            <button type="button" class="lang-button is-active" data-lang-switch="ko">
+              KO
+            </button>
+            <button type="button" class="lang-button" data-lang-switch="en">
+              EN
+            </button>
+          </div>
+        </div>
+
+        <h1 data-copy="archivePageTitle"></h1>
+        <p class="archive-page__lead" data-copy="archivePageLead"></p>
+        <p id="archive-wall-count" class="archive-page__count"></p>
+      </header>
+
+      <div id="archive-wall-setup" class="archive-page__notice is-hidden" role="status"></div>
+      <div
+        id="archive-wall-feedback"
+        class="archive-page__notice archive-page__notice--error is-hidden"
+        role="status"
+      ></div>
+
+      <section id="archive-wall-list" class="archive-wall" aria-live="polite"></section>
+    </main>
+  </body>
+</html>
