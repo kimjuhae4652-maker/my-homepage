@@ -1,1 +1,230 @@
-<h1>Juhae Kim's Archive</h1>
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manifesto Archive</title>
+    <meta
+      name="description"
+      content="A participatory manifesto archive built for GitHub Pages and Supabase."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./config.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top">
+          <span class="brand__mark">26</span>
+          <span class="brand__name" data-copy="brandName"></span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#about" data-copy="navAbout"></a>
+          <a href="#archive" data-copy="navArchive"></a>
+          <a href="#submit" data-copy="navSubmit"></a>
+        </nav>
+
+        <div class="language-toggle" role="group" aria-label="Language switcher">
+          <button type="button" class="lang-button is-active" data-lang-switch="ko">
+            KO
+          </button>
+          <button type="button" class="lang-button" data-lang-switch="en">
+            EN
+          </button>
+        </div>
+      </header>
+
+      <main id="top">
+        <section class="hero" id="about">
+          <div class="hero__content">
+            <p class="hero__eyebrow" data-copy="heroEyebrow"></p>
+            <h1 class="hero__title" data-copy="heroTitle"></h1>
+            <p class="hero__lead" data-copy="heroLead"></p>
+            <div class="hero__actions">
+              <a class="button button--solid" href="#submit" data-copy="heroPrimaryCta"></a>
+              <a class="button button--ghost" href="#archive" data-copy="heroSecondaryCta"></a>
+            </div>
+          </div>
+
+          <aside class="hero__panel">
+            <p class="panel__label" data-copy="heroPanelLabel"></p>
+            <p class="panel__statement" data-copy-html="heroPanelStatement"></p>
+            <ul class="hero__facts">
+              <li>
+                <strong data-copy="heroFactImmediateLabel"></strong>
+                <span data-copy="heroFactImmediateValue"></span>
+              </li>
+              <li>
+                <strong data-copy="heroFactModerationLabel"></strong>
+                <span data-copy="heroFactModerationValue"></span>
+              </li>
+              <li>
+                <strong data-copy="heroFactFormatLabel"></strong>
+                <span data-copy="heroFactFormatValue"></span>
+              </li>
+            </ul>
+          </aside>
+        </section>
+
+        <section class="section section--guide">
+          <div class="section__heading">
+            <p class="section__kicker" data-copy="guideKicker"></p>
+            <h2 data-copy="guideTitle"></h2>
+          </div>
+
+          <div class="guide-grid">
+            <article class="guide-card">
+              <span class="guide-card__index">01</span>
+              <h3 data-copy="guideStep1Title"></h3>
+              <p data-copy="guideStep1Body"></p>
+            </article>
+            <article class="guide-card">
+              <span class="guide-card__index">02</span>
+              <h3 data-copy="guideStep2Title"></h3>
+              <p data-copy="guideStep2Body"></p>
+            </article>
+            <article class="guide-card">
+              <span class="guide-card__index">03</span>
+              <h3 data-copy="guideStep3Title"></h3>
+              <p data-copy="guideStep3Body"></p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section section--archive" id="archive">
+          <div class="section__heading">
+            <p class="section__kicker" data-copy="archiveKicker"></p>
+            <h2 data-copy="archiveTitle"></h2>
+            <p class="section__body" data-copy="archiveBody"></p>
+          </div>
+
+          <div id="setup-banner" class="notice notice--setup is-hidden" role="status"></div>
+          <div id="archive-feedback" class="notice notice--error is-hidden" role="status"></div>
+
+          <div class="filters">
+            <label class="field">
+              <span class="field__label" data-copy="filterLocaleLabel"></span>
+              <select id="locale-filter"></select>
+            </label>
+            <label class="field">
+              <span class="field__label" data-copy="filterTagLabel"></span>
+              <select id="tag-filter"></select>
+            </label>
+            <label class="field field--search">
+              <span class="field__label" data-copy="filterSearchLabel"></span>
+              <input
+                id="search-input"
+                type="search"
+                autocomplete="off"
+                spellcheck="false"
+              />
+            </label>
+          </div>
+
+          <div class="archive-meta">
+            <p id="archive-count" class="archive-meta__count"></p>
+            <p class="archive-meta__hint" data-copy="archiveHint"></p>
+          </div>
+
+          <div id="archive-list" class="archive-list" aria-live="polite"></div>
+        </section>
+
+        <section class="section section--submit" id="submit">
+          <div class="section__heading">
+            <p class="section__kicker" data-copy="submitKicker"></p>
+            <h2 data-copy="submitTitle"></h2>
+            <p class="section__body" data-copy="submitBody"></p>
+          </div>
+
+          <form id="manifesto-form" class="submit-form" novalidate>
+            <div class="submit-form__grid">
+              <label class="field field--full">
+                <span class="field__label" data-copy="formBodyLabel"></span>
+                <textarea
+                  id="body-input"
+                  name="body"
+                  rows="7"
+                  minlength="20"
+                  maxlength="500"
+                  required
+                ></textarea>
+                <div class="field__meta">
+                  <span class="field__hint" data-copy="formBodyHint"></span>
+                  <span id="body-count" class="field__count">0 / 500</span>
+                </div>
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-copy="formLocaleLabel"></span>
+                <select id="submission-locale" name="locale"></select>
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-copy="formAuthorLabel"></span>
+                <input
+                  id="author-input"
+                  name="author_name"
+                  type="text"
+                  maxlength="40"
+                  autocomplete="nickname"
+                />
+                <span class="field__hint" data-copy="formAuthorHint"></span>
+              </label>
+
+              <label class="field field--checkbox">
+                <input id="anonymous-input" name="is_anonymous" type="checkbox" />
+                <span data-copy="formAnonymousLabel"></span>
+              </label>
+
+              <fieldset class="field field--full">
+                <legend class="field__label" data-copy="formTagsLabel"></legend>
+                <div id="tag-options" class="tag-options"></div>
+                <span class="field__hint" data-copy="formTagsHint"></span>
+              </fieldset>
+
+              <label class="field field--full">
+                <span class="field__label" data-copy="formImageLabel"></span>
+                <input
+                  id="image-input"
+                  name="image"
+                  type="file"
+                  accept="image/png,image/jpeg,image/webp"
+                />
+                <span id="image-help" class="field__hint" data-copy="formImageHint"></span>
+              </label>
+            </div>
+
+            <input
+              id="website-input"
+              name="website"
+              type="text"
+              class="honeypot"
+              tabindex="-1"
+              autocomplete="off"
+            />
+
+            <div class="submit-form__footer">
+              <p id="form-status" class="form-status" aria-live="polite"></p>
+              <button id="submit-button" type="submit" class="button button--solid">
+                <span data-copy="formSubmitButton"></span>
+              </button>
+            </div>
+          </form>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p data-copy-html="footerCopy"></p>
+      </footer>
+    </div>
+  </body>
+</html>
